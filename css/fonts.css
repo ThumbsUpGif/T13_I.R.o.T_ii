@@ -2,6 +2,9 @@
 
 body p {
     font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 200;
 }
 
 body h1,
@@ -31,3 +34,26 @@ h3 {
 .hero h1, .hero, h3, .nav-bar__menu h5 {
     font-family: 'Bitter', serif;
 }
+
+.tile-menu-headline {
+    font-weight: 300;
+    font-family: 'Bitter', serif;
+}
+
+.about h2 {
+    font-weight: 300;
+    font-family: 'Bitter', serif;
+}
+
+.drink-presentation p, 
+.drink-presentation h1, 
+.drink-presentation h2, 
+.drink-presentation h3, 
+.drink-presentation h4, 
+.drink-presentation h5 {
+    color: #000;
+}
+
+.drink-presentation h1 {
+    font-size: 32px;
+} 

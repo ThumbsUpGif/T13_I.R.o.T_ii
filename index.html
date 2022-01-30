@@ -1,59 +1,124 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=5.0">
-    <title>Carlo Alberto Burato - Portfolio - Interactive designer Oslo</title>
-    <meta name="description" content="An interaction designer has knowledge of both digital 
-    technology and design methods, and works to understand how technical systems 
-    are experienced by users.">
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
-    
-</head>
-<body>
-    <header>
-        <a href="/" class="logo">logo</a>
-        <nav class="main-menu-desktop">
-            <ul>
-                <li><a href="/">home</a></li>
-                <li><a href="#works">about</a></li>
-                <li><a href="#">contact</a></li>
-            </ul>
-        </nav>
-        <div 
-            role="button" 
-            aria-label="Main menu icon" 
-            class="burger-icon burger">
-        </div>
-        <nav class="mobile-nav mobile-nav-hide">
-            <ul>
-                <li><a href="/">home</a></li>
-                <li><a href="#">about</a></li>
-                <li><a href="#">contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="container" role="figure" aria-label="Image of a mountain">
-        <p>Adam Smith</p>
-        <span>Interactive</span>
-    </div>
-    <main>
-    <h1 class="title">Portfolio</h1>
-      <section class="workslist">
-        <!--
-        <a href="#" class="work">
-            <h2 class="work-title">tittel 1</h2>
-            <div class="work-mask"></div>
-            <img src="./assets/thumb01.jpg" class="work-cover">
-        </a>-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🍸 Independent Republic of Torshov</title>
 
-      </section>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/styleBar.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <!-- css Carlo -->
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+
+
+</head>
+
+<body>
+    <main class="max-width">
+        <section class="nav-bar">
+            <div class="nav-bar__logo">
+                <a href="#home">🍸</a>
+            </div>
+            <div class="nav-bar__menu">
+                <a href="#cocktail-menu">
+                    <h5>Cocktails</h5>
+                </a>
+                <a href="#beer-menu">
+                    <h5>Beers</h5>
+                </a>
+                <a href="#about">
+                    <h5>About</h5>
+                </a>
+            </div>
+        </section>
+
+        <section class="hero">
+
+            <div class="hero-header">
+                <span>
+                    The Independent Republic of Torshov
+                </span>
+            </div>
+
+            <div class="hero-subheader">
+                <span>
+                    A toast to our struggle
+                </span>
+            </div>
+
+        </section>
+
+
+
+
+        <div class="z-index-wrapper">
+
+
+        <section class="workslist">
+´
+        </section>
+
+            <section class="cocktail-menu" id="cocktail-menu">
+                <h2 class="tile-menu-headline">
+                    Cocktails
+                </h2>
+            </section>
+
+            <section class="beer-menu" id="beer-menu">
+                <h2 class="tile-menu-headline">
+                    Beers
+                </h2>
+            </section>
+
+        </div> 
+        <!-- z-index-wrapper -->
+
+
+        <footer class="about" id="about">
+
+            <div class="about__paragraph">
+
+                <h2>
+                    The story of our struggle
+                </h2>
+                <p>
+                    For too long Torshov has lived under the yoke of Sagene Bydel, the city of Oslo and the Kingdom of
+                    Norway. Since times immemorial the proud people of Torshov have wanted freedom to manage their own
+                    affairs. Building on the successful model of micro-nations such as Monaco and Singapore, the
+                    Independent Republic of Torshov is destined to one day become a valued member of the global
+                    community.
+                    After committing to a policy of peaceful resistance since the 1990s, our struggle for freedom is now
+                    focused on building a constructive public discourse over a well balanced menu of cocktails and craft
+                    beers.
+
+                </p>
+
+            </div>
+
+            <div class="about__photo">
+
+                <img src="./assets/quebec_i.jpeg" alt="students in protest march">
+
+            </div>
+        </footer>
+
+        
     </main>
-    <footer>
-        copyright osv.
-    </footer>
+
+    <!-- Carlo sin JS -->
     <script type="module" src="./js/app.js"></script>
+    <!-- <script type="module" src="./js/carloApp.js"></script> -->
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-html {
+/* html {
     font-size: 20px;
     scroll-behavior: smooth;
 }
@@ -163,17 +163,20 @@ footer {
     padding: 5px;
     background-color: #000;
     color: #fff;
-}
+} */
 
 /* Works section */
 
+
 .workslist {
+    background-color: pink; /*remember to comment this out...!*/
+    min-height: 200px; /*remember to comment this out...!*/
     max-width: 960px;
-    width: 100%;
     margin: 2rem auto;
     display: flex;
     flex-flow: row wrap;
     gap: 10px;
+    z-index: 20;
 }
 
 .work {
