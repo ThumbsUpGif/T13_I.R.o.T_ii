@@ -168,27 +168,34 @@ body {
 .z-index-wrapper {
     background-color: var(--background-color);
     position: relative;
-    min-height: 40vh;
+    /* min-height: 40vh; */
     padding-top: 20px;
     z-index: 3;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    z-index: 20;
 }
 
 .cocktail-menu,
 .beer-menu,
 .workslist {
     background-color: var(--background-color);
-    position: relative;
+    /* position: relative; */
     margin: 6%;
     /* min-height: 20vh; */
     /* z-index: 4; */
 
-    max-width: 960px;
+    
     margin: 2rem auto;
     display: flex;
     flex-flow: row wrap;
-    gap: 25px;
-    z-index: 20;
+    /* justify-content: space-evenly; */
     justify-content: center;
+    gap: 25px;
+    
+   
 }
 
 
@@ -404,6 +411,25 @@ footer {
     margin-top: 20px;
     margin-bottom: 80px;
     min-height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: stretch; */
+}
+
+.drink-presentation__cocktail__bottom-half__lead {
+    /* background-color: orangered; */
+    min-height: 60px;
+    min-width: 60px;
+    margin-top: 20px;
+    max-width: 480px;
+}
+
+.drink-presentation__cocktail__bottom-half__body {
+    /* background-color: teal; */
+    margin-top: 40px;
+    min-height: 60px;
+    min-width: 60px;
 }
 
 .drink-presentation__beer__banner {
@@ -423,7 +449,7 @@ footer {
 
 .tile-menu-headline {
     margin-top: 100px;
-    margin-left: 12%;
+    margin-left: 2%;
 }
 
 

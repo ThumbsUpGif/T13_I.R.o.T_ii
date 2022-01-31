@@ -94,16 +94,25 @@ async function getPost(pageValue) {
 
     topHalfRight.append(handleImage(result[0].mainImage.asset._ref));
 
-
     const bottomHalf = document.createElement('div');
     bottomHalf.classList.add('drink-presentation__cocktail__bottom-half')
     // bottomHalf.innerText = result[0].body;
-    // bottomHalf.innerHTML = '<p>Lorem Ipsum<p>'; // CANCEL OUT LATER!
+    
     drinkPresentation.append(bottomHalf);
 
-    bottomHalf.append(handleParagraphs(result[0].body));
+    // bottomHalf.append(handleParagraphs(result[0].body));
 
+    const bottomHalfLead = document.createElement('div');
+    bottomHalfLead.classList.add('drink-presentation__cocktail__bottom-half__lead')
+    bottomHalf.append(bottomHalfLead)
+    bottomHalfLead.append(handleParagraphs(result[0].lead));
 
+    
+    const bottomHalfBody = document.createElement('div');
+    bottomHalfBody.classList.add('drink-presentation__cocktail__bottom-half__body')
+    bottomHalf.append(bottomHalfBody)
+    bottomHalfBody.append(handleParagraphs(result[0].body));
+    // bottomHalfBody.innerHTML = '<p>Lorem Ipsum<p>'; // CANCEL OUT LATER!
 
 }
 
