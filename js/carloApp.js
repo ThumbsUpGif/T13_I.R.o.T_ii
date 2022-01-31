@@ -71,11 +71,11 @@ async function getPost(pageValue) {
 
     const returnButton = document.createElement('a');
     returnButton.classList.add('drink-presentation__return-button');
-    returnButton.href = "../index.html";
+    returnButton.href = "https://thumbsupgif.github.io/T13_I.R.o.T_ii/index.html";
     drinkPresentation.append(returnButton);
 
     const returnButtonIcon = document.createElement('img');
-    returnButtonIcon.setAttribute('src', '../assets/cross-thin.svg');
+    returnButtonIcon.setAttribute('src', 'https://thumbsupgif.github.io/T13_I.R.o.T_ii/assets/cross-thin.svg');
     returnButton.append(returnButtonIcon);
 
     const topHalf = document.createElement('div');
@@ -124,7 +124,7 @@ async function getPosts() {
     const {
         result
     } = await posts.json();
-    
+
     const worksList = document.querySelector('.cocktail-menu');
 
     result.forEach(post => {
