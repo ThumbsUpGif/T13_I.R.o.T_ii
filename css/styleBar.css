@@ -182,11 +182,7 @@ body {
 .beer-menu,
 .workslist {
     background-color: var(--background-color);
-    /* position: relative; */
     margin: 6%;
-    /* min-height: 20vh; */
-    /* z-index: 4; */
-
     max-width: 960px;
     margin: 2rem auto;
     display: flex;
@@ -350,7 +346,8 @@ footer {
     /* background-color: violet; */
     min-height: 200px; /* // remember to cancel this out!! */
     width: 100%;
-    height: 40%;
+    /* height: 20%; */
+   
     display: flex;
     flex-direction: row;
 }
@@ -358,7 +355,7 @@ footer {
 
 .drink-presentation__cocktail__top-half__left {
     /* background-color: yellow; */
-    line-height: 20px;
+    /* line-height: 20px; */
     min-width: 100px;
     min-height: 100px;
     width: 50%;
@@ -366,10 +363,15 @@ footer {
     align-items: flex-end;
 }
 
+.drink-presentation__cocktail__top-half__left h1 {
+    transform: translateY(8px);
+}
+
 
 .drink-presentation__cocktail__top-half__right {
     /* background-color: orange; */
     /* min-height: 200px; */
+     /* max-height: 30vh; */
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -448,8 +450,14 @@ footer {
 
 
 .tile-menu-headline {
-    margin-top: 100px;
-    margin-left: 2%;
+    /* position: relative; */
+    margin-top: 200px;
+    margin-left: 6%;
+    margin-right: 6%;
+    padding-left: 2%;
+    max-width: 960px;
+    margin: 2rem auto;
+    display: flex;
 }
 
 
