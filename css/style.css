@@ -491,7 +491,7 @@ footer {
  }
  
  .tile-mask {
-     background-color: rgba(0, 0, 0, 0.7);
+     background-color: rgba(0, 0, 0, 0.6);
      position: absolute;
      width: 100%;
      height: 100%;
@@ -516,3 +516,6 @@ footer {
     transition: transform 0.3s ease-in-out;
 }
 
+.tile-title span {
+    background-color: var(--background-color);
+}

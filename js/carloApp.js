@@ -4,25 +4,21 @@ import {
     cocktail,
     beer
 } from './env.js';
+
 import {
     handleImage,
     handleParagraphs
 } from './utils.js';
 
-console.log('Ciao Carlo!')
+console.log('Ni Hao!')
+
+
 
 function init() {
     const urlString = window.location.search;
     const paramsUrl = new URLSearchParams(urlString);
     const pageValue = paramsUrl.get('page')
 
-    // const burgerIcon = document.querySelector('.burger-icon');
-    // const mobileNav = document.querySelector('.mobile-nav');
-    // burgerIcon.addEventListener('click', () => {
-    // mobileNav.classList.toggle('mobile-nav-hide');
-    // burgerIcon.classList.toggle('burger');
-    // burgerIcon.classList.toggle('closemobilemenu');
-    // });
 
     if (pageValue === null) {
         getPosts();
@@ -33,21 +29,8 @@ function init() {
 
 }
 
-// følgende er funksjonen for å hente en singel post/projekt
 
-// async function getPost(pageValue) {
-//     const project = document.querySelector('.project');
-//     const post = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
-//     [slug.current == "${pageValue}"]
-//     `);
-//     const { result } = await post.json();
-//     project.append(handleImage(result[0].mainImage.asset._ref));
-//     const title = document.createElement('h1');
-//     title.innerText = result[0].title;
-//     project.append(title)
-//     project.append(handleParagraphs(result[0].body));
-// }
-
+// MENU DETAIL
 
 async function getPost(pageValue) {
 
@@ -61,9 +44,11 @@ async function getPost(pageValue) {
 
     const { result } = await post.json();
 
+
+    //// Ask Carlo about this
     document.body.classList.add("cocktail-background"); // CANCEL OUT LATER!
 
-    // if (category._ref == cocktail) {
+    // if ([category._ref == cocktail]) {
     //     document.body.classList.add("cocktail-background");
     // } else {
     //     document.body.classList.add("beer-background");
@@ -107,7 +92,7 @@ async function getPost(pageValue) {
     bottomHalf.append(bottomHalfLead)
     bottomHalfLead.append(handleParagraphs(result[0].lead));
 
-    
+
     const bottomHalfBody = document.createElement('div');
     bottomHalfBody.classList.add('drink-presentation__cocktail__bottom-half__body')
     bottomHalf.append(bottomHalfBody)
@@ -116,8 +101,8 @@ async function getPost(pageValue) {
 
 }
 
+// FRONT PAGE
 
-// bygge alle blokker i forsiden som representer prosjekter 
 async function getPosts() {
 
     const posts = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
@@ -127,7 +112,6 @@ async function getPosts() {
     // const posts =  await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
     // [_type == "post" && categories._ref == "b36ab5ed-e50e-42be-8ab4-15e270c114f1"]
     // `);
-
 
 
     const {
@@ -147,7 +131,7 @@ async function getPosts() {
 
         const workTitle = document.createElement('h2'); // 
         workTitle.classList.add('tile-title'); // 
-        workTitle.innerText = post.title; // 
+        workTitle.innerHTML = "<span>"+ post.title; + "</span>" // 
         workBlock.append(workTitle); // 
 
         const workMask = document.createElement('div'); // 
@@ -164,9 +148,6 @@ async function getPosts() {
 
         worksList.append(workBlock); // 
     });
-
-
-
 
 }
 
