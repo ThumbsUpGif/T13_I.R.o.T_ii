@@ -179,8 +179,16 @@ body {
     background-color: var(--background-color);
     position: relative;
     margin: 6%;
-    min-height: 20vh;
-    z-index: 4;
+    /* min-height: 20vh; */
+    /* z-index: 4; */
+
+    max-width: 960px;
+    margin: 2rem auto;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 25px;
+    z-index: 20;
+    /* justify-content: center; */
 }
 
 
@@ -259,7 +267,7 @@ footer {
 
 /* ============================================================== */
 /* ============================================================== */
-/* =========================   LA CARTE  ======================== */
+/* =========================   MENU PAGE  ======================= */
 /* ============================================================== */
 /* ============================================================== */
 
@@ -391,6 +399,7 @@ footer {
 
 .drink-presentation__cocktail__bottom-half {
     /* background-color: mediumaquamarine; */
+    min-height: 100px;
     margin-top: 20px;
     margin-bottom: 80px;
     min-height: 100px;
@@ -400,34 +409,74 @@ footer {
     /* background-color: springgreen; */
 }
 
-.drink-presentation__beer__top-half {
-    /* background-color: violet; */
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+
+
+
+
+/* ============================================================== */
+/* ============================================================== */
+/* =========================   TILES  ======================= */
+/* ============================================================== */
+/* ============================================================== */
+
+
+.tile-menu-headline {
+    margin-left: 12%;
 }
 
-.drink-presentation__beer__top-half__left {
-    /* background-color: yellow; */
-    min-width: 100px;
-    min-height: 100px;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-content: flex-end;
-}
 
-.drink-presentation__beer__top-half__right {
-    /* background-color: orange; */
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-}
-
-.drink-presentation__beer__top-half__right img {
+.tile-cover {
     width: 100%; 
-    height: auto;
-
-    display: block;
-    object-fit: cover;
+    height: 100%;
 }
+
+.menu-tile {
+    display: block;
+    width: 275px;
+    height: 275px;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+}
+
+.menu-tile img {
+    display: block;
+    object-fit: cover; 
+    width: 100%;
+    height: auto;
+    object-position: center;
+    /* filter: sepia(0.5); */
+}
+
+
+.menu-tile:hover .tile-mask {
+    transform: translate(0px); 
+ }
+ 
+ .tile-mask {
+     background-color: rgba(0, 0, 0, 0.7);
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     top: 0;
+     left: 0;
+     z-index: 5;
+     transform: translate(-300px);
+     transition: transform 0.3s ease-in-out;
+ }
+
+
+ .menu-tile:hover .tile-title {
+    transform: translateY(160px);
+}
+
+.tile-title {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    z-index: 10;
+    transform: translateY(300px);
+    transition: transform 0.3s ease-in-out;
+}
+

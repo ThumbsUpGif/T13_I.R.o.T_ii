@@ -14,7 +14,6 @@ function presentMenu() {
     //     document.body.classList.add("beer-background");
     // }
 
-
     const returnButton = document.createElement('a');
     returnButton.classList.add('drink-presentation__return-button');
     returnButton.href = "../index.html";
