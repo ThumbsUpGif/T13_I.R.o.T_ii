@@ -1,0 +1,245 @@
+/* html {
+    font-size: 20px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-page);
+}
+
+header {
+    position: fixed;
+    min-height: 80px;
+    width: 100%;
+    color: #fff;
+    background-color: #000;
+    z-index: 5;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.main-menu-desktop ul {
+    display: flex;
+    list-style: none;
+    gap: 1.2rem;
+    padding: 0.8rem;
+}
+
+
+.main-menu-desktop ul li a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border 0.2s ease-in-out;
+}
+
+.main-menu-desktop ul li a:hover {
+    border-bottom: 2px solid #fff;
+}
+
+.main-menu-desktop {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .main-menu-desktop {
+        display: block;
+    }
+}
+
+.close-mobile-menu {
+    cursor: pointer;
+}
+
+.burger-icon {
+    padding: 0.8rem;
+    cursor: pointer;
+    z-index: 2000;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0.4rem;
+}
+
+.burger {
+    background-image: url('../assets/burger.svg');
+    background-repeat: no-repeat;
+}
+
+.closemobilemenu {
+    background-image: url('../assets/closemenu.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (min-width: 768px)  {
+    .burger-icon {
+        display: none;
+    }
+}
+
+.logo {
+    padding: 0.8rem;
+    color: #fff;
+}
+
+.mobile-nav {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align:center;
+    padding: 2rem;
+    animation-name: slideIn;
+    animation-duration: 0.3s;
+    z-index: 10;
+}
+
+.mobile-nav-hide {
+    display: none;
+}
+
+.mobile-nav ul {
+    list-style: none;
+}
+
+.mobile-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 3rem;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(100vw);
+    }
+
+    to {
+        transform: translate(0px);
+    }
+}
+
+.title {
+    max-width: 900px;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: burlywood;
+    padding: 20px;
+    border: 5px solid #333;
+    position: relative;
+    background-image: url('../assets/dry-martini.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container p {
+    color: #000;
+    padding: 5px;
+    background-color: #fff;
+    position: absolute;
+    top: 200px;
+    left: 40px;
+    font-size: 44px;
+}
+
+.container span {
+    color: #000;
+    padding: 5px;
+    background-color: #fff;
+    position: absolute;
+    top: 260px;
+    left: 40px;
+    font-size: 24px;
+}
+
+footer {
+    min-height: 40px;
+    padding: 5px;
+    background-color: #000;
+    color: #fff;
+} */
+
+/* Works section */
+
+
+.workslist {
+    background-color: pink; 
+    /* min-height: 200px;  */
+    max-width: 900px;
+    margin-top: 300px;
+    margin-left: auto;
+    margin-right: auto; 
+    display: flex;
+    flex-flow: row wrap;
+    gap: 25px;
+    z-index: 20;
+}
+
+.work {
+    display: block;
+    width: 275px;
+    height: 275px;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    overflow: hidden;
+}
+
+.work:hover .work-mask {
+   transform: translate(0px); 
+}
+
+.work-mask {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    transform: translate(-300px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.work:hover .work-title {
+    transform: translateY(160px);
+}
+
+.work-title {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    z-index: 10;
+    transform: translateY(300px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.work-cover {
+    width: 100%;
+    height: 100%;
+}
+
+.project {
+    padding-top: 4rem;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.project-image {
+    width: 100%;
+}
+
+.project p {
+    margin: 1rem 0;
+}
+
+.basic-image {
+    width: 100%;
+}
