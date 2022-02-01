@@ -21,11 +21,13 @@ function init() {
 
 
     if (pageValue === null) {
-        getPosts();
+        // getPosts();
+        getPosts("1023104d-c346-4a64-b227-e213d2669ede", 'beerList'); // comment out later
+        getPosts("b36ab5ed-e50e-42be-8ab4-15e270c114f1", 'CocktailList'); // comment out later
+    
     } else {
         getPost(pageValue);
     }
-
 
 }
 
@@ -103,22 +105,40 @@ async function getPost(pageValue) {
 
 // FRONT PAGE
 
-async function getPosts() {
+// async function getPosts(type) {
+async function getPosts(type, htmlSelector) {
 
-    const posts = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
-    [_type == "post"]
+    // const posts = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
+    // [_type == "post"]
+    // `);
+
+    const posts =  await fetch(`https:///${projectID}.api.sanity.io/v1/data/query/production?query=*
+    [_type == "post" && categories[0]._ref == "${type}"]
     `);
 
-    // const posts =  await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
-    // [_type == "post" && categories._ref == "b36ab5ed-e50e-42be-8ab4-15e270c114f1"]
-    // `);
+    console.log(categories)
+
+    // "categories": [
+    //     {
+    //       "_key": "1a95532c561d",
+    //       "_ref": "b36ab5ed-e50e-42be-8ab4-15e270c114f1",
+    //       "_type": "reference"
+    //     }
+    //   ],
+
 
 
     const {
         result
     } = await posts.json();
 
-    const worksList = document.querySelector('.cocktail-menu');
+    const cocktailList = document.querySelector('.cocktail-menu');
+    const beerList = document.querySelector('.beer-menu');
+
+    console.log(cocktailList)
+    console.log(beerList)
+    console.log(htmlSelector)
+    console.log(result)
 
     result.forEach(post => {
 
@@ -146,7 +166,12 @@ async function getPosts() {
         workBlock.append(handleImage(post.mainImage.asset._ref, 'work-cover'));
         // workBlock.classList.add('tile-cover')
 
-        worksList.append(workBlock); // 
+        console.log(workBlock)
+        
+        
+        htmlSelector.append(workBlock); // 
+
+
     });
 
 }
