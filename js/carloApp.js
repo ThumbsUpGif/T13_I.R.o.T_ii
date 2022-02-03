@@ -30,6 +30,57 @@ function init() {
 }
 
 
+// FRONT PAGE
+
+async function getPosts() {
+
+    const posts = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
+    [_type == "post"]
+    `);
+
+    // const posts =  await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
+    // [_type == "post" && categories._ref == "b36ab5ed-e50e-42be-8ab4-15e270c114f1"]
+    // `);
+
+
+    const {
+        result
+    } = await posts.json();
+
+    
+
+    const worksList = document.querySelector('.cocktail-menu');
+
+    result.forEach(post => {
+
+        const workBlock = document.createElement('a'); //
+        workBlock.classList.add('menu-tile'); // 
+        workBlock.setAttribute(
+            'href',
+            `./menu.html?page=${post.slug.current}`
+        );
+
+        const workTitle = document.createElement('h2'); // 
+        workTitle.classList.add('tile-title'); // 
+        workTitle.innerHTML = "<span>"+ post.title; + "</span>" // 
+        workBlock.append(workTitle); // 
+
+        const workMask = document.createElement('div'); // 
+        workMask.classList.add('tile-mask'); // 
+        workBlock.append(workMask); // 
+
+        const workCover = document.createElement('img'); // 
+        const cover = post.mainImage.asset._ref.split('-'); // h
+        workCover.setAttribute('src', `${cdnUrl}${cover[1]}-${cover[2]}.${cover[3]}`);
+        workCover.classList.add('tile-cover');
+
+        workBlock.append(handleImage(post.mainImage.asset._ref, 'work-cover'));
+        // workBlock.classList.add('tile-cover')
+
+        worksList.append(workBlock); // 
+    });
+
+
 // MENU DETAIL
 
 async function getPost(pageValue) {
@@ -101,53 +152,7 @@ async function getPost(pageValue) {
 
 }
 
-// FRONT PAGE
 
-async function getPosts() {
-
-    const posts = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
-    [_type == "post"]
-    `);
-
-    // const posts =  await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
-    // [_type == "post" && categories._ref == "b36ab5ed-e50e-42be-8ab4-15e270c114f1"]
-    // `);
-
-
-    const {
-        result
-    } = await posts.json();
-
-    const worksList = document.querySelector('.cocktail-menu');
-
-    result.forEach(post => {
-
-        const workBlock = document.createElement('a'); //
-        workBlock.classList.add('menu-tile'); // 
-        workBlock.setAttribute(
-            'href',
-            `./menu.html?page=${post.slug.current}`
-        );
-
-        const workTitle = document.createElement('h2'); // 
-        workTitle.classList.add('tile-title'); // 
-        workTitle.innerHTML = "<span>"+ post.title; + "</span>" // 
-        workBlock.append(workTitle); // 
-
-        const workMask = document.createElement('div'); // 
-        workMask.classList.add('tile-mask'); // 
-        workBlock.append(workMask); // 
-
-        const workCover = document.createElement('img'); // 
-        const cover = post.mainImage.asset._ref.split('-'); // h
-        workCover.setAttribute('src', `${cdnUrl}${cover[1]}-${cover[2]}.${cover[3]}`);
-        workCover.classList.add('tile-cover');
-
-        workBlock.append(handleImage(post.mainImage.asset._ref, 'work-cover'));
-        // workBlock.classList.add('tile-cover')
-
-        worksList.append(workBlock); // 
-    });
 
 }
 
