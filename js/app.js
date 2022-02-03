@@ -13,6 +13,9 @@ import {
 console.log('Hello World!')
 
 
+
+
+
 function init() {
     const urlString = window.location.search;
     const paramsUrl = new URLSearchParams(urlString);
@@ -108,18 +111,13 @@ async function getPosts() {
         result
     } = await posts.json();
 
-    console.log(result)
+   
 
     const cocktails = result.filter(post => {
-        console.log(post.categories[0]._ref)
         return post.categories[0]._ref === 'b36ab5ed-e50e-42be-8ab4-15e270c114f1'
     });
 
     const cocktailList = document.querySelector('.cocktail-menu');
-
-    console.log(cocktails)
-    console.log(cocktailList)
-    console.log('hola!')
 
     
     cocktails.forEach(post => {
@@ -154,7 +152,6 @@ async function getPosts() {
 
 
     const beers = result.filter(post => {
-        console.log(post.categories[0]._ref)
         return post.categories[0]._ref === '1023104d-c346-4a64-b227-e213d2669ede'
     });
     
