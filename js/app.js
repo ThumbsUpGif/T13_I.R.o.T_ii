@@ -10,15 +10,14 @@ import {
     handleParagraphs
 } from './utils.js';
 
-console.log('Ni Hao!')
-
-
+console.log('Hello World!')
 
 
 function init() {
     const urlString = window.location.search;
     const paramsUrl = new URLSearchParams(urlString);
     const pageValue = paramsUrl.get('page')
+
 
     if (pageValue === null) {
         getPosts();
@@ -36,8 +35,6 @@ async function getPost(pageValue) {
 
     const drinkPresentation = document.querySelector('.drink-presentation');
 
-    console.log('Hej!')
-    console.log(drinkPresentation)
 
     const post = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
     [slug.current == "${pageValue}"]
@@ -46,14 +43,9 @@ async function getPost(pageValue) {
 
     const { result } = await post.json();
 
-    //// Ask Carlo about this
+    
     document.body.classList.add("cocktail-background"); // CANCEL OUT LATER!
 
-    // if ([category._ref == cocktail]) {
-    //     document.body.classList.add("cocktail-background");
-    // } else {
-    //     document.body.classList.add("beer-background");
-    // }
 
     const returnButton = document.createElement('a');
     returnButton.classList.add('drink-presentation__return-button');
@@ -132,31 +124,31 @@ async function getPosts() {
     
     cocktails.forEach(post => {
         
-        const workBlock = document.createElement('a'); //
-        workBlock.classList.add('menu-tile'); // 
-        workBlock.setAttribute(
+        const tileBlock = document.createElement('a'); //
+        tileBlock.classList.add('menu-tile'); // 
+        tileBlock.setAttribute(
             'href',
             `./menu.html?page=${post.slug.current}`
         );
 
-        const workTitle = document.createElement('h2'); // 
-        workTitle.classList.add('tile-title'); // 
-        workTitle.innerHTML = "<span>"+ post.title; + "</span>" // 
-        workBlock.append(workTitle); // 
+        const tileTitle = document.createElement('h2'); // 
+        tileTitle.classList.add('tile-title'); // 
+        tileTitle.innerHTML = "<span>"+ post.title; + "</span>" // 
+        tileBlock.append(tileTitle); // 
 
-        const workMask = document.createElement('div'); // 
-        workMask.classList.add('tile-mask'); // 
-        workBlock.append(workMask); // 
+        const tileMask = document.createElement('div'); // 
+        tileMask.classList.add('tile-mask'); // 
+        tileBlock.append(tileMask); // 
 
-        const workCover = document.createElement('img'); // 
+        const tileCover = document.createElement('img'); // 
         const cover = post.mainImage.asset._ref.split('-'); // h
-        workCover.setAttribute('src', `${cdnUrl}${cover[1]}-${cover[2]}.${cover[3]}`);
-        workCover.classList.add('tile-cover');
+        tileCover.setAttribute('src', `${cdnUrl}${cover[1]}-${cover[2]}.${cover[3]}`);
+        tileCover.classList.add('tile-cover');
 
-        workBlock.append(handleImage(post.mainImage.asset._ref, 'work-cover'));
-        // workBlock.classList.add('tile-cover')
+        tileBlock.append(handleImage(post.mainImage.asset._ref, 'work-cover'));
+     
 
-        cocktailList.append(workBlock); // 
+        cocktailList.append(tileBlock); // 
         
     });
 
@@ -168,38 +160,34 @@ async function getPosts() {
     
     const beerList = document.querySelector('.beer-menu');
 
-    console.log(beers)
-    console.log(beerList)
-    console.log('Guten tag!')
 
 
     beers.forEach(post => {
         
-        const workBlock = document.createElement('a'); //
-        workBlock.classList.add('menu-tile'); // 
-        workBlock.setAttribute(
+        const tileBlock = document.createElement('a'); //
+        tileBlock.classList.add('menu-tile'); // 
+        tileBlock.setAttribute(
             'href',
             `./menu.html?page=${post.slug.current}`
         );
 
-        const workTitle = document.createElement('h2'); // 
-        workTitle.classList.add('tile-title'); // 
-        workTitle.innerHTML = "<span>"+ post.title; + "</span>" // 
-        workBlock.append(workTitle); // 
+        const tileTitle = document.createElement('h2'); // 
+        tileTitle.classList.add('tile-title'); // 
+        tileTitle.innerHTML = "<span>"+ post.title; + "</span>" // 
+        tileBlock.append(tileTitle); // 
 
-        const workMask = document.createElement('div'); // 
-        workMask.classList.add('tile-mask'); // 
-        workBlock.append(workMask); // 
+        const tileMask = document.createElement('div'); // 
+        tileMask.classList.add('tile-mask'); // 
+        tileBlock.append(tileMask); // 
 
-        const workCover = document.createElement('img'); // 
+        const tileCover = document.createElement('img'); // 
         const cover = post.mainImage.asset._ref.split('-'); // h
-        workCover.setAttribute('src', `${cdnUrl}${cover[1]}-${cover[2]}.${cover[3]}`);
-        workCover.classList.add('tile-cover');
+        tileCover.setAttribute('src', `${cdnUrl}${cover[1]}-${cover[2]}.${cover[3]}`);
+        tileCover.classList.add('tile-cover');
 
-        workBlock.append(handleImage(post.mainImage.asset._ref, 'work-cover'));
-        // workBlock.classList.add('tile-cover')
-
-        beerList.append(workBlock); // 
+        tileBlock.append(handleImage(post.mainImage.asset._ref, 'work-cover'));
+    
+        beerList.append(tileBlock); // 
         
     });
     
