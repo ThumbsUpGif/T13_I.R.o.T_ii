@@ -14,17 +14,14 @@ console.log('Ni Hao!')
 
 
 
+
 function init() {
     const urlString = window.location.search;
     const paramsUrl = new URLSearchParams(urlString);
     const pageValue = paramsUrl.get('page')
 
-
     if (pageValue === null) {
-        // getPosts();
-        getPosts("1023104d-c346-4a64-b227-e213d2669ede", 'beerList'); // comment out later
-        getPosts("b36ab5ed-e50e-42be-8ab4-15e270c114f1", 'CocktailList'); // comment out later
-    
+        getPosts();
     } else {
         getPost(pageValue);
     }
@@ -32,12 +29,15 @@ function init() {
 }
 
 
+
 // MENU DETAIL
 
 async function getPost(pageValue) {
 
-
     const drinkPresentation = document.querySelector('.drink-presentation');
+
+    console.log('Hej!')
+    console.log(drinkPresentation)
 
     const post = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
     [slug.current == "${pageValue}"]
@@ -45,7 +45,6 @@ async function getPost(pageValue) {
 
 
     const { result } = await post.json();
-
 
     //// Ask Carlo about this
     document.body.classList.add("cocktail-background"); // CANCEL OUT LATER!
@@ -101,47 +100,38 @@ async function getPost(pageValue) {
     bottomHalfBody.append(handleParagraphs(result[0].body));
     // bottomHalfBody.innerHTML = '<p>Lorem Ipsum<p>'; // CANCEL OUT LATER!
 
-}
+} // END MENU-DETAIL
+
+
 
 // FRONT PAGE
 
-// async function getPosts(type) {
-async function getPosts(type, htmlSelector) {
+async function getPosts() {
 
-    // const posts = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
-    // [_type == "post"]
-    // `);
-
-    const posts =  await fetch(`https:///${projectID}.api.sanity.io/v1/data/query/production?query=*
-    [_type == "post" && categories[0]._ref == "${type}"]
+    const posts = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
+    [_type == "post"]
     `);
-
-    console.log(categories)
-
-    // "categories": [
-    //     {
-    //       "_key": "1a95532c561d",
-    //       "_ref": "b36ab5ed-e50e-42be-8ab4-15e270c114f1",
-    //       "_type": "reference"
-    //     }
-    //   ],
-
-
 
     const {
         result
     } = await posts.json();
 
-    const cocktailList = document.querySelector('.cocktail-menu');
-    const beerList = document.querySelector('.beer-menu');
-
-    console.log(cocktailList)
-    console.log(beerList)
-    console.log(htmlSelector)
     console.log(result)
 
-    result.forEach(post => {
+    const cocktails = result.filter(post => {
+        console.log(post.categories[0]._ref)
+        return post.categories[0]._ref === 'b36ab5ed-e50e-42be-8ab4-15e270c114f1'
+    });
 
+    const cocktailList = document.querySelector('.cocktail-menu');
+
+    console.log(cocktails)
+    console.log(cocktailList)
+    console.log('hola!')
+
+    
+    cocktails.forEach(post => {
+        
         const workBlock = document.createElement('a'); //
         workBlock.classList.add('menu-tile'); // 
         workBlock.setAttribute(
@@ -166,14 +156,53 @@ async function getPosts(type, htmlSelector) {
         workBlock.append(handleImage(post.mainImage.asset._ref, 'work-cover'));
         // workBlock.classList.add('tile-cover')
 
-        console.log(workBlock)
+        cocktailList.append(workBlock); // 
         
-        
-        htmlSelector.append(workBlock); // 
-
-
     });
 
+
+    const beers = result.filter(post => {
+        console.log(post.categories[0]._ref)
+        return post.categories[0]._ref === '1023104d-c346-4a64-b227-e213d2669ede'
+    });
+    
+    const beerList = document.querySelector('.beer-menu');
+
+    console.log(beers)
+    console.log(beerList)
+    console.log('Guten tag!')
+
+
+    beers.forEach(post => {
+        
+        const workBlock = document.createElement('a'); //
+        workBlock.classList.add('menu-tile'); // 
+        workBlock.setAttribute(
+            'href',
+            `./menu.html?page=${post.slug.current}`
+        );
+
+        const workTitle = document.createElement('h2'); // 
+        workTitle.classList.add('tile-title'); // 
+        workTitle.innerHTML = "<span>"+ post.title; + "</span>" // 
+        workBlock.append(workTitle); // 
+
+        const workMask = document.createElement('div'); // 
+        workMask.classList.add('tile-mask'); // 
+        workBlock.append(workMask); // 
+
+        const workCover = document.createElement('img'); // 
+        const cover = post.mainImage.asset._ref.split('-'); // h
+        workCover.setAttribute('src', `${cdnUrl}${cover[1]}-${cover[2]}.${cover[3]}`);
+        workCover.classList.add('tile-cover');
+
+        workBlock.append(handleImage(post.mainImage.asset._ref, 'work-cover'));
+        // workBlock.classList.add('tile-cover')
+
+        beerList.append(workBlock); // 
+        
+    });
+    
 }
 
 init();
