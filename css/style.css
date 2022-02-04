@@ -183,6 +183,7 @@ body {
 .workslist {
     background-color: var(--background-color);
     margin: 6%;
+    /* padding-top: 100px; */
     max-width: 960px;
     margin: 2rem auto;
     display: flex;
@@ -455,6 +456,7 @@ footer {
     margin-left: 6%;
     margin-right: 6%;
     padding-left: 2%;
+    padding-top: 60px;
     max-width: 960px;
     margin: 2rem auto;
     display: flex;
