@@ -14,8 +14,6 @@ console.log('Hello World!')
 
 
 
-
-
 function init() {
     const urlString = window.location.search;
     const paramsUrl = new URLSearchParams(urlString);
@@ -46,8 +44,13 @@ async function getPost(pageValue) {
 
     const { result } = await post.json();
 
-    
-    document.body.classList.add("cocktail-background"); // CANCEL OUT LATER!
+
+    const currentBackground = result[0].categories[0]._ref === 'b36ab5ed-e50e-42be-8ab4-15e270c114f1' 
+        ? 'cocktail-background'
+        : 'beer-background';
+  
+    const bodyEl = document.querySelector('body');
+    bodyEl.classList.add(currentBackground); 
 
 
     const returnButton = document.createElement('a');
@@ -60,40 +63,38 @@ async function getPost(pageValue) {
     returnButton.append(returnButtonIcon);
 
     const topHalf = document.createElement('div');
-    topHalf.classList.add('drink-presentation__cocktail__top-half');
+    topHalf.classList.add('drink-presentation__top-half');
     drinkPresentation.append(topHalf);
 
+
+    const currentTitle = result[0].categories[0]._ref === 'b36ab5ed-e50e-42be-8ab4-15e270c114f1' 
+        ? 'drink-presentation__cocktail__top-half__left'
+        : 'drink-presentation__beer__top-half__left';
+  
     const topHalfLeft = document.createElement('div');
-    topHalfLeft.classList.add('drink-presentation__cocktail__top-half__left');
+    topHalfLeft.classList.add(currentTitle);
     topHalfLeft.innerHTML = "<H1>" + result[0].title + "</H1>";
-    // topHalfLeft.innerHTML = '<h1>Manhattan<h1>'; // CANCEL OUT LATER!
     topHalf.append(topHalfLeft)
 
     const topHalfRight = document.createElement('div');
-    topHalfRight.classList.add('drink-presentation__cocktail__top-half__right');
+    topHalfRight.classList.add('drink-presentation__top-half__right');
     topHalf.append(topHalfRight)
 
     topHalfRight.append(handleImage(result[0].mainImage.asset._ref));
 
     const bottomHalf = document.createElement('div');
-    bottomHalf.classList.add('drink-presentation__cocktail__bottom-half')
-    // bottomHalf.innerText = result[0].body;
-    
+    bottomHalf.classList.add('drink-presentation__cocktail__bottom-half') 
     drinkPresentation.append(bottomHalf);
-
-    // bottomHalf.append(handleParagraphs(result[0].body));
 
     const bottomHalfLead = document.createElement('div');
     bottomHalfLead.classList.add('drink-presentation__cocktail__bottom-half__lead')
     bottomHalf.append(bottomHalfLead)
     bottomHalfLead.append(handleParagraphs(result[0].lead));
 
-
     const bottomHalfBody = document.createElement('div');
     bottomHalfBody.classList.add('drink-presentation__cocktail__bottom-half__body')
     bottomHalf.append(bottomHalfBody)
     bottomHalfBody.append(handleParagraphs(result[0].body));
-    // bottomHalfBody.innerHTML = '<p>Lorem Ipsum<p>'; // CANCEL OUT LATER!
 
 } // END MENU-DETAIL
 

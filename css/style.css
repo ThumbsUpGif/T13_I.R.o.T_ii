@@ -343,7 +343,7 @@ footer {
     max-width: 640px;
 }
 
-.drink-presentation__cocktail__top-half {
+.drink-presentation__top-half {
     /* background-color: violet; */
     min-height: 200px; /* // remember to cancel this out!! */
     width: 100%;
@@ -364,21 +364,30 @@ footer {
     align-items: flex-end;
 }
 
-.drink-presentation__cocktail__top-half__left h1 {
+
+.drink-presentation__beer__top-half__left {
+    /* background-color: yellow; */
+    /* line-height: 20px; */
+    min-width: 100px;
+    min-height: 100px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.drink-presentation__top-half__left h1 {
     transform: translateY(8px);
 }
 
 
-.drink-presentation__cocktail__top-half__right {
+.drink-presentation__top-half__right {
     /* background-color: orange; */
-    /* min-height: 200px; */
-     /* max-height: 30vh; */
     width: 50%;
     display: flex;
     flex-direction: column;
 }
 
-.drink-presentation__cocktail__top-half__right img {
+.drink-presentation__top-half__right img {
     width: 100%; 
     height: auto;
     display: block;
@@ -387,12 +396,13 @@ footer {
 
 @media screen and (max-width: 600px) {
 
-    .drink-presentation__cocktail__top-half {
+    .drink-presentation__top-half {
         /* background-color: orange; */
         flex-direction: column;
     }
 
-    .drink-presentation__cocktail__top-half__left {
+    .drink-presentation__cocktail__top-half__left,
+    .drink-presentation__beer__top-half__left {
         /* background-color: yellow; */
         width: 100%;
         min-height: 10px;
@@ -401,7 +411,7 @@ footer {
         align-items: flex-start;
     }
 
-    .drink-presentation__cocktail__top-half__right {
+    .drink-presentation__top-half__right {
         width: 100%;
         justify-content: center;
     }
@@ -520,4 +530,13 @@ footer {
 
 .tile-title span {
     background-color: var(--background-color);
+}
+
+
+@media screen and (max-width: 600px) {  
+
+    .tile-title {
+        transform: translateY(220px);
+    }
+
 }
