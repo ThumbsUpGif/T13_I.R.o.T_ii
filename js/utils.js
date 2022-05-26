@@ -1,11 +1,8 @@
 import { cdnUrl } from "./env.js";
-// istedenfor å håndtere hver gang vi trenger et bilde med split 
-// lager vi en stætte funksjon som returnere bildet ferdig behandlet
+// function to import image ready to use
 
 export function handleImage(keyImage, customClass = 'basic-image') {
-    // vi trenger fast url av cdn + verdi i index 1, 2 og 3
-    /*['image', 'dsefs45tfsrgfg5ge', '1200x800', 'jpg'] eksempel av cover
-    */
+    // select image from array
     const imageArray = keyImage.split('-');
     const image = document.createElement('img');
     image.classList.add(customClass);
@@ -14,7 +11,7 @@ export function handleImage(keyImage, customClass = 'basic-image') {
 }
 
 
-// vi trenger en støtte funksjon som håndtere objekt av block element
+// basic DOM functions
 export function handleParagraphs(body) {
     const text = document.createElement('article');
     if (body) {
