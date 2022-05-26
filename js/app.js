@@ -100,7 +100,7 @@ async function getPost(pageValue) {
 
 
 
-// FRONT PAGE
+// FRONT PAGE WITH TILES
 
 async function getPosts() {
 
@@ -151,6 +151,7 @@ async function getPosts() {
         
     });
 
+    // BEERS ARE PRESENTED WITH A DIFFERENT LAYOUT
 
     const beers = result.filter(post => {
         return post.categories[0]._ref === '1023104d-c346-4a64-b227-e213d2669ede'
