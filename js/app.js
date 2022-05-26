@@ -55,7 +55,7 @@ async function getPost(pageValue) {
 
     const returnButton = document.createElement('a');
     returnButton.classList.add('drink-presentation__return-button');
-    returnButton.href = "https://thumbsupgif.github.io/T13_I.R.o.T_ii/index.html";
+    returnButton.href = "https://independent-republic-of-torshov.netlify.app/";
     drinkPresentation.append(returnButton);
 
     const returnButtonIcon = document.createElement('img');
