@@ -36,7 +36,6 @@ async function getPost(pageValue) {
 
     const drinkPresentation = document.querySelector('.drink-presentation');
 
-
     const post = await fetch(`https://${projectID}.api.sanity.io/v1/data/query/production?query=*
     [slug.current == "${pageValue}"]
     `);
@@ -44,8 +43,8 @@ async function getPost(pageValue) {
 
     const { result } = await post.json();
 
-
-    const currentBackground = result[0].categories[0]._ref === 'b36ab5ed-e50e-42be-8ab4-15e270c114f1' 
+    //Make different background depending on category of drink
+    const currentBackground = result[0].categories[0]._ref === '${cocktail}' 
         ? 'cocktail-background'
         : 'beer-background';
   
@@ -66,8 +65,8 @@ async function getPost(pageValue) {
     topHalf.classList.add('drink-presentation__top-half');
     drinkPresentation.append(topHalf);
 
-
-    const currentTitle = result[0].categories[0]._ref === 'b36ab5ed-e50e-42be-8ab4-15e270c114f1' 
+    //Make different layout depending on category of drink
+    const currentTitle = result[0].categories[0]._ref === '${cocktail}' 
         ? 'drink-presentation__cocktail__top-half__left'
         : 'drink-presentation__beer__top-half__left';
   
@@ -100,7 +99,7 @@ async function getPost(pageValue) {
 
 
 
-// FRONT PAGE
+// FRONT PAGE WITH TILES
 
 async function getPosts() {
 
@@ -115,7 +114,7 @@ async function getPosts() {
    
 
     const cocktails = result.filter(post => {
-        return post.categories[0]._ref === 'b36ab5ed-e50e-42be-8ab4-15e270c114f1'
+        return post.categories[0]._ref === '${cocktail}'
     });
 
     const cocktailList = document.querySelector('.cocktail-menu');
@@ -146,14 +145,14 @@ async function getPosts() {
 
         tileBlock.append(handleImage(post.mainImage.asset._ref, 'work-cover'));
      
-
         cocktailList.append(tileBlock); // 
         
     });
 
 
+
     const beers = result.filter(post => {
-        return post.categories[0]._ref === '1023104d-c346-4a64-b227-e213d2669ede'
+        return post.categories[0]._ref === '${beer}'
     });
     
     const beerList = document.querySelector('.beer-menu');
