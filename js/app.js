@@ -1,8 +1,6 @@
 import {
     cdnUrl,
     projectID,
-    cocktail,
-    beer
 } from './env.js';
 
 import {
@@ -44,7 +42,7 @@ async function getPost(pageValue) {
     const { result } = await post.json();
 
     //Make different background depending on category of drink
-    const currentBackground = result[0].categories[0]._ref === '${cocktail}' 
+    const currentBackground = result[0].categories[0]._ref === 'b36ab5ed-e50e-42be-8ab4-15e270c114f1' 
         ? 'cocktail-background'
         : 'beer-background';
   
@@ -66,7 +64,7 @@ async function getPost(pageValue) {
     drinkPresentation.append(topHalf);
 
     //Make different layout depending on category of drink
-    const currentTitle = result[0].categories[0]._ref === '${cocktail}' 
+    const currentTitle = result[0].categories[0]._ref === 'b36ab5ed-e50e-42be-8ab4-15e270c114f1' 
         ? 'drink-presentation__cocktail__top-half__left'
         : 'drink-presentation__beer__top-half__left';
   
@@ -114,7 +112,7 @@ async function getPosts() {
    
 
     const cocktails = result.filter(post => {
-        return post.categories[0]._ref === '${cocktail}'
+        return post.categories[0]._ref === 'b36ab5ed-e50e-42be-8ab4-15e270c114f1'
     });
 
     const cocktailList = document.querySelector('.cocktail-menu');
@@ -152,7 +150,7 @@ async function getPosts() {
 
 
     const beers = result.filter(post => {
-        return post.categories[0]._ref === '${beer}'
+        return post.categories[0]._ref === '1023104d-c346-4a64-b227-e213d2669ede'
     });
     
     const beerList = document.querySelector('.beer-menu');
